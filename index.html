@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MidiApp</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>MidiApp</h1>
+          <p id="supportStatus">Checking MIDI support...</p>
+        </div>
+        <button id="connectButton" type="button">Connect MIDI</button>
+      </header>
+
+      <section class="status-grid" aria-label="MIDI status">
+        <div class="metric">
+          <span>Input</span>
+          <strong id="inputName">None</strong>
+        </div>
+        <div class="metric">
+          <span>Output</span>
+          <strong id="outputName">Browser synth</strong>
+        </div>
+        <div class="metric">
+          <span>Tempo</span>
+          <strong><output id="tempoValue">120</output> BPM</strong>
+        </div>
+      </section>
+
+      <section class="panel controls" aria-label="Controls">
+        <label>
+          MIDI input
+          <select id="inputSelect"></select>
+        </label>
+        <label>
+          MIDI output
+          <select id="outputSelect"></select>
+        </label>
+        <label>
+          Channel
+          <select id="channelSelect">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+            <option value="6">7</option>
+            <option value="7">8</option>
+            <option value="8">9</option>
+            <option value="9">10</option>
+            <option value="10">11</option>
+            <option value="11">12</option>
+            <option value="12">13</option>
+            <option value="13">14</option>
+            <option value="14">15</option>
+            <option value="15">16</option>
+          </select>
+        </label>
+        <label>
+          Tempo
+          <input id="tempoInput" type="range" min="40" max="220" value="120">
+        </label>
+      </section>
+
+      <section class="panel soundfont-controls" aria-label="SoundFont controls">
+        <label>
+          SoundFont
+          <select id="soundFontSelect">
+            <option value="">Built-in synth</option>
+          </select>
+        </label>
+        <label>
+          Preset
+          <select id="presetSelect" disabled>
+            <option value="">Built-in synth</option>
+          </select>
+        </label>
+        <span id="soundFontStatus">No SoundFont loaded</span>
+      </section>
+
+      <section class="panel transport" aria-label="Transport">
+        <button id="recordButton" type="button">Record</button>
+        <button id="playButton" type="button">Play</button>
+        <button id="stopButton" type="button">Stop</button>
+        <button id="clearButton" type="button">Clear</button>
+        <button id="metronomeButton" type="button" aria-pressed="false">Metronome</button>
+        <span id="recordingInfo">0 events</span>
+      </section>
+
+      <section class="workspace">
+        <div class="panel keyboard-panel">
+          <div class="panel-heading">
+            <h2>Keyboard</h2>
+            <span>Click, tap, or use QWERTYUIOP ASDFGHJKL ZXCVBNM</span>
+          </div>
+          <div id="keyboard" class="keyboard" aria-label="Playable piano keyboard"></div>
+        </div>
+
+        <div class="panel monitor-panel">
+          <div class="panel-heading">
+            <h2>MIDI monitor</h2>
+            <button id="panicButton" type="button">All Notes Off</button>
+          </div>
+          <ol id="eventLog" class="event-log" aria-live="polite"></ol>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/soundfont.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>
