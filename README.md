@@ -1,6 +1,6 @@
 # MidiApp
 
-A dependency-free browser MIDI workstation for testing MIDI input/output, playing an on-screen keyboard, recording short passages, and using a simple Web Audio fallback synth or an uploaded SoundFont.
+Browser MIDI keyboards with Web MIDI support, recording, playback, and local SoundFont playback.
 
 ## Features
 
